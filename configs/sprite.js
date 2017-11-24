@@ -9,10 +9,10 @@ var _ = require('underscore'),
     projectPath = fs.realpathSync('../../../') + '/',
     themeOptions = {},
     defaultOptions = {
-        src: 'img/sprite/*.png',
-        dest: 'img/sprite.png',
+        src: 'images/sprite/*.png',
+        dest: 'images/sprite.png',
         destCss: 'css/source/_sprite.less',
-        imgPath: '../img/sprite.png'
+        imgPath: '../images/sprite.png'
     };
 
 _.each(themes, function(theme, name) {
