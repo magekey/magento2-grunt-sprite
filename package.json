@@ -1,6 +1,6 @@
 {
     "name": "magento2-grunt-sprite",
-    "description": "Magento2 grunt sprite modules dependencies for local development",
+    "description": "Magento2 grunt sprite generation tool",
     "version": "1.0.0",
     "author": {
         "name": "Nicholas Miller",
