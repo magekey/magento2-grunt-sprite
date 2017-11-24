@@ -3,4 +3,11 @@
  */
 'use strict';
 
-module.exports = {};
+module.exports = {
+    /*
+    yourtheme: {
+        area: 'frontend',
+        name: 'YourNamespace/yourtheme'
+    }
+    */
+};
