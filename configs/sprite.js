@@ -11,10 +11,8 @@ var _ = require('underscore'),
     defaultOptions = {
         src: 'img/sprite/*.png',
         dest: 'img/sprite.png',
-        padding: 5,
         destCss: 'css/source/_sprite.less',
-        imgPath: '../img/sprite.png',
-        algorithm: 'binary-tree'
+        imgPath: '../img/sprite.png'
     };
 
 _.each(themes, function(theme, name) {
@@ -23,10 +21,13 @@ _.each(themes, function(theme, name) {
     themeOptions[name] = {
         src: themePath + opts.src,
         dest: themePath + opts.dest,
-        padding: opts.padding,
+        padding: 5,
         destCss: themePath + opts.destCss,
         imgPath: opts.imgPath,
-        algorithm: opts.algorithm
+        algorithm: 'binary-tree',
+        cssVarMap: function (sprite) {
+            sprite.name = 'sprite_' + sprite.name;
+        }
     };
 });
 module.exports = themeOptions;
