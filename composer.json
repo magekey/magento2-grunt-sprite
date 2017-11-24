@@ -1,0 +1,7 @@
+{
+    "name": "magekey/grunt-sprite",
+    "description": "Magento2 grunt sprite modules dependencies for local development",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "magento2-component"
+}

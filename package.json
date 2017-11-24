@@ -1,0 +1,21 @@
+{
+    "name": "magento2-grunt-sprite",
+    "description": "Magento2 grunt sprite modules dependencies for local development",
+    "version": "1.0.0",
+    "author": {
+        "name": "Nicholas Miller",
+        "email": "nick@magekey.com"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/magekey/magento2-grunt-sprite"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-spritesmith": "^6.5.1",
+        "load-grunt-config": "^0.19.2",
+        "underscore": "^1.8.3"
+    }
+}
