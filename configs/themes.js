@@ -4,10 +4,10 @@
 'use strict';
 
 module.exports = {
-    /*
-    yourtheme: {
-        area: 'frontend',
-        name: 'YourNamespace/yourtheme'
-    }
-    */
+  /*
+  yourtheme: {
+    area: 'frontend',
+    name: 'YourNamespace/yourtheme'
+  }
+  */
 };
