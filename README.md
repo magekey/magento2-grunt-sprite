@@ -1,3 +1,4 @@
+[![Travis branch](https://img.shields.io/travis/magekey/magento2-grunt-sprite/master.svg)](https://travis-ci.org/magekey/magento2-grunt-sprite) [![Packagist](https://img.shields.io/packagist/v/magekey/grunt-sprite.svg)](https://packagist.org/packages/magekey/grunt-sprite) [![Packagist](https://img.shields.io/packagist/dt/magekey/grunt-sprite.svg)](https://packagist.org/packages/magekey/grunt-sprite)
 
 # Magento 2 Grunt Sprite Tool
 Sprite Generation for Magento 2, based on Grunt
