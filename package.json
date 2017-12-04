@@ -1,7 +1,7 @@
 {
     "name": "magento2-grunt-sprite",
     "description": "Magento2 grunt sprite generation tool",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
         "name": "Nicholas Miller",
         "email": "nick@magekey.com"
