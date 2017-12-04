@@ -7,12 +7,14 @@ const _ = require('underscore'),
   fs = require('fs'),
   themes = require('./themes'),
   projectPath = fs.realpathSync('../../../') + '/',
+  srcPath = fs.realpathSync('') + '/',
   themeOptions = {},
   defaultOptions = {
     src: 'images/sprite/*.png',
     dest: 'images/sprite.png',
     destCss: 'css/source/_sprite.less',
-    imgPath: '../images/sprite.png'
+    imgPath: '../images/sprite.png',
+    cssTemplate: 'less.template.handlebars'
   };
 
 _.each(themes, function(theme, name) {
@@ -23,6 +25,7 @@ _.each(themes, function(theme, name) {
     dest: themePath + opts.dest,
     padding: 5,
     destCss: themePath + opts.destCss,
+    cssTemplate: srcPath + 'templates/' + opts.cssTemplate,
     imgPath: opts.imgPath,
     algorithm: 'binary-tree',
     cssVarMap: function (sprite) {
