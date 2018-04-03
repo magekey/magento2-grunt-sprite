@@ -5,7 +5,8 @@
 module.exports = function (grunt) {
   'use strict';
 
-  const path = require('path'),
+  const _ = require('underscore'),
+    path = require('path'),
     merge = require('merge-objects'),
     tasks = grunt.file.expand('./tasks/*.js');
 
@@ -13,7 +14,7 @@ module.exports = function (grunt) {
     configPath: path.join(__dirname, './configs'),
     init: true,
     postProcess: function(config) {
-      const userConfig = (function () {
+      let userConfig = (function () {
         try {
           return require(config.path.project + '/' + config.path.userConfigFile);
         }
@@ -21,9 +22,22 @@ module.exports = function (grunt) {
           return {};
         }
       })();
-
       merge(config, userConfig);
-      config.sprite._setup(config);
+
+      config.updateTemplateVar = function (vars) {
+        let template = {};
+        _.each(vars, function(value, key) {
+          if (typeof value == 'string') {
+            template = _.template(value);
+            value = template(config.path);
+          }
+          vars[key] = value;
+        });
+        return vars;
+      };
+
+      config.updateTemplateVar(config.path);
+      config.spriteConfig.setup(config);
     }
   });
 
