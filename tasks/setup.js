@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
     try {
       fs.symlinkSync(relativeDirectory, configPath.project + '/' + configPath.symlinkDirectoryName, 'dir');
-      fs.copyFileSync(configPath.src + '/' + configPath.userConfigFile, configPath.project + '/' + configPath.userConfigFile);
+      fs.copyFileSync(configPath.src + '/' + configPath.userConfigFile + '.json.sample', configPath.project + '/' + configPath.userConfigFile + '.json.sample');
     }
     catch (error) {
       grunt.log.errorlns(error);

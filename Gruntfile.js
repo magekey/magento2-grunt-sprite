@@ -15,7 +15,7 @@ module.exports = function (grunt) {
     postProcess: function(config) {
       const userConfig = (function () {
         try {
-          return require(config.path.project + '/grunt-sprite-config');
+          return require(config.path.project + '/' + config.path.userConfigFile);
         }
         catch (error) {
           return {};
