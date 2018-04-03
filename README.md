@@ -7,8 +7,18 @@ Sprite Generation for Magento 2, based on Grunt
 1. Run `composer require magekey/grunt-sprite`
 2. Go to package directory `cd vendor/magekey/grunt-sprite`
 3. Run `npm install`
-4. Run `grunt setup` create a convenient symlink `grunt-sprite` in the project root
-5. Define your themes in `themes.js`.
+4. Run `grunt setup` create a convenient symlink `grunt-sprite` and config file `grunt-sprite-config.json.sample` in the project root.
+5. Rename `grunt-sprite-config.json.sample` to `grunt-sprite-config.json` and define your themes
+```
+{
+  "themes": {
+    "mytheme": {
+      "area": "frontend",
+      "name": "Vendor/mytheme"
+    }
+  }
+}
+```
 
 
 ## Usage
