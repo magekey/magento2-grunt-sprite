@@ -36,10 +36,7 @@ module.exports = {
         _.each(config.sprite._defaultOptions, function(value, key) {
           if (typeof value == 'string') {
             const template = _.template(value);
-            value = template({
-              theme: themePath,
-              src: config.path.src
-            });
+            value = template(_.extend({theme: themePath}, config.path));
           }
           config.sprite[name][key] = value;
         });
