@@ -5,30 +5,29 @@
 module.exports = function (grunt) {
   'use strict';
 
-  const _ = require('underscore'),
-    path = require('path'),
-    configDir = './configs',
+  const path = require('path'),
+    merge = require('merge-objects'),
     tasks = grunt.file.expand('./tasks/*.js');
 
   require('load-grunt-config')(grunt, {
-    configPath: path.join(__dirname, configDir),
+    configPath: path.join(__dirname, './configs'),
     init: true,
-    jitGrunt: {
-      staticMappings: {
-        usebanner: 'grunt-banner'
-      }
+    postProcess: function(config) {
+      var userConfig = (function () {
+        try {
+          return require(config.path.project + '/grunt-sprite-config');
+        } catch (error) {
+          return {};
+        }
+      })();
+
+      merge(config, userConfig);
+      config.sprite._setup(config);
     }
   });
 
+  tasks.push('time-grunt');
   tasks.forEach(function (task) {
     require(task)(grunt);
-  });
-
-  _.each({
-    default: function () {
-      grunt.log.subhead('Please run "grunt --help" to show available tasks.');
-    }
-  }, function (task, name) {
-    grunt.registerTask(name, task);
   });
 };

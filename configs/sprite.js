@@ -5,33 +5,44 @@
 'use strict';
 
 const _ = require('underscore'),
-  fs = require('fs'),
-  themes = require('./themes'),
-  projectPath = fs.realpathSync('../../../') + '/',
-  srcPath = fs.realpathSync('') + '/',
-  themeOptions = {},
-  defaultOptions = {
-    src: 'images/sprite/*.png',
-    dest: 'images/sprite.png',
-    destCss: 'css/source/_sprite.less',
-    imgPath: '../images/sprite.png',
-    cssTemplate: 'less.template.handlebars'
-  };
+  fs = require('fs');
 
-_.each(themes, function(theme, name) {
-  const themePath = projectPath + 'app/design/' + theme.area + '/' + theme.name + '/web/',
-    opts = _.extend({}, defaultOptions, theme);
-  themeOptions[name] = {
-    src: themePath + opts.src,
-    dest: themePath + opts.dest,
+module.exports = {
+  _defaultOptions: {
+    src: "<%= theme %>/images/sprite/*.png",
+    dest: "<%= theme %>/images/sprite.png",
     padding: 5,
-    destCss: themePath + opts.destCss,
-    cssTemplate: srcPath + 'templates/' + opts.cssTemplate,
-    imgPath: opts.imgPath,
-    algorithm: 'binary-tree',
+    destCss: "<%= theme %>/css/source/_sprite.less",
+    cssTemplate: "<%= src %>/templates/less.template.handlebars",
+    imgPath: "../images/sprite.png",
+    algorithm: "binary-tree",
     cssVarMap: function (sprite) {
       sprite.name = 'sprite_' + sprite.name;
     }
-  };
-});
-module.exports = themeOptions;
+  },
+  _setup: function (config) {
+    var checkDirectory = function (path) {
+      try {
+        return fs.realpathSync(path);
+      } catch (e) {
+        return false;
+      }
+    };
+    _.each(config.themes, function(theme, name) {
+      var themePath = config.path.project + '/app/design/' + theme.area + '/' + theme.name + '/web';
+      if (checkDirectory(themePath)) {
+        config.sprite[name] = {};
+        _.each(config.sprite._defaultOptions, function(value, key) {
+          if (typeof value == 'string') {
+            var template = _.template(value);
+            value = template({
+              theme: themePath,
+              src: config.path.src
+            });
+          }
+          config.sprite[name][key] = value;
+        });
+      }
+    });
+  }
+};

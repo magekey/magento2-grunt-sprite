@@ -6,16 +6,14 @@ module.exports = function (grunt) {
   'use strict';
 
   grunt.registerTask('setup', function () {
-    const fs = require('fs'),
+    var fs = require('fs'),
       path = require('path'),
-      projectPath = fs.realpathSync('../../../') + '/',
-      relativeDirectory = path.relative(projectPath, fs.realpathSync('./')),
-      symlinkDirectoryName = 'grunt-tools';
+      configPath = grunt.config.get('path'),
+      relativeDirectory = path.relative(configPath.project, fs.realpathSync('./'));
 
     try {
-      fs.symlinkSync(relativeDirectory, projectPath + '/' + symlinkDirectoryName, 'dir');
-    }
-    catch (error) {
+      fs.symlinkSync(relativeDirectory, configPath.project + '/' + configPath.symlinkDirectoryName, 'dir');
+    } catch (error) {
       grunt.log.errorlns(error);
     }
   });

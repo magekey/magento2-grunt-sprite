@@ -17,6 +17,7 @@
         "grunt": "^1.0.1",
         "grunt-spritesmith": "^6.5.1",
         "load-grunt-config": "^0.19.2",
+        "merge-objects": "^1.0.5",
         "underscore": "^1.8.3"
     },
     "scripts": {

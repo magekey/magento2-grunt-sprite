@@ -1,0 +1,10 @@
+{
+  "blank": {
+     "area": "frontend",
+     "name": "Magento/blank"
+   },
+   "luma": {
+     "area": "frontend",
+     "name": "Magento/luma"
+   }
+}
