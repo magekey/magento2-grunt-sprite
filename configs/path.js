@@ -8,7 +8,7 @@ const fs = require('fs');
 
 module.exports = {
   userConfigFile: 'grunt-sprite-config',
-  symlinkDirectoryName: 'grunt-tools',
+  symlinkDirectoryName: 'grunt-sprite',
   project: fs.realpathSync('../../../'),
   src: fs.realpathSync('')
 };
