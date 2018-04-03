@@ -11,10 +11,14 @@ Sprite Generation for Magento 2, based on Grunt
 5. Rename `grunt-sprite-config.json.sample` to `grunt-sprite-config.json` and define your themes
 ```
 {
-  "themes": {
+  "path": {
+    "sprite_mytheme": "<%= project %>/app/design/frontend/Vendor/mytheme/web"
+  },
+  "sprite": {
     "mytheme": {
-      "area": "frontend",
-      "name": "Vendor/mytheme"
+      "src": "<%= sprite_mytheme %>/images/sprite/*.png",
+      "dest": "<%= sprite_mytheme %>/images/sprite.png",
+      "destCss": "<%= sprite_mytheme %>/css/source/_sprite.less"
     }
   }
 }
@@ -24,7 +28,7 @@ Sprite Generation for Magento 2, based on Grunt
 ## Usage
 ```
 cd grunt-sprite
-grunt sprite:<theme_name>
+grunt sprite:<sprite>
 ```
 
 Add sprites to your theme in *app/design/Vendor/theme/web/css/_styles.less*
