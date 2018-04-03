@@ -27,7 +27,6 @@ module.exports = function (grunt) {
     }
   });
 
-  tasks.push('time-grunt');
   tasks.forEach(function (task) {
     require(task)(grunt);
   });
