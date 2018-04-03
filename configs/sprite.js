@@ -21,20 +21,21 @@ module.exports = {
     }
   },
   _setup: function (config) {
-    var checkDirectory = function (path) {
+    const checkDirectory = function (path) {
       try {
         return fs.realpathSync(path);
-      } catch (e) {
+      }
+      catch (e) {
         return false;
       }
     };
     _.each(config.themes, function(theme, name) {
-      var themePath = config.path.project + '/app/design/' + theme.area + '/' + theme.name + '/web';
+      const themePath = config.path.project + '/app/design/' + theme.area + '/' + theme.name + '/web';
       if (checkDirectory(themePath)) {
         config.sprite[name] = {};
         _.each(config.sprite._defaultOptions, function(value, key) {
           if (typeof value == 'string') {
-            var template = _.template(value);
+            const template = _.template(value);
             value = template({
               theme: themePath,
               src: config.path.src

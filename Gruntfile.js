@@ -13,10 +13,11 @@ module.exports = function (grunt) {
     configPath: path.join(__dirname, './configs'),
     init: true,
     postProcess: function(config) {
-      var userConfig = (function () {
+      const userConfig = (function () {
         try {
           return require(config.path.project + '/grunt-sprite-config');
-        } catch (error) {
+        }
+        catch (error) {
           return {};
         }
       })();

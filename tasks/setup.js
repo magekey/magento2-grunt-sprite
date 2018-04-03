@@ -6,14 +6,15 @@ module.exports = function (grunt) {
   'use strict';
 
   grunt.registerTask('setup', function () {
-    var fs = require('fs'),
+    const fs = require('fs'),
       path = require('path'),
       configPath = grunt.config.get('path'),
       relativeDirectory = path.relative(configPath.project, fs.realpathSync('./'));
 
     try {
       fs.symlinkSync(relativeDirectory, configPath.project + '/' + configPath.symlinkDirectoryName, 'dir');
-    } catch (error) {
+    }
+    catch (error) {
       grunt.log.errorlns(error);
     }
   });
