@@ -9,6 +9,8 @@ Sprite Generation for Magento 2, based on Grunt
 3. Run `npm install`
 4. Run `grunt setup` create a convenient symlink `grunt-sprite` and config file `grunt-sprite-config.json.sample` in the project root.
 5. Rename `grunt-sprite-config.json.sample` to `grunt-sprite-config.json` and define your themes
+
+LESS Example:
 ```
 {
   "path": {
@@ -19,6 +21,23 @@ Sprite Generation for Magento 2, based on Grunt
       "src": "<%= sprite_mytheme %>/images/sprite/*.png",
       "dest": "<%= sprite_mytheme %>/images/sprite.png",
       "destCss": "<%= sprite_mytheme %>/css/source/_sprite.less"
+    }
+  }
+}
+```
+
+SCSS Example:
+```
+{
+  "path": {
+    "sprite_mymodule": "<%= project %>/app/design/frontend/Vendor/mytheme"
+  },
+  "sprite": {
+    "test_module": {
+      "src": "<%= sprite_mymodule %>/MyPackage_Module/web/images/sprite/*.png",
+      "dest": "<%= sprite_mymodule %>/MyPackage_Module/web/images/sprite.png",
+      "destCss": "<%= sprite_mymodule %>/MyPackage_Module/web/scss/_sprite.scss",
+      "cssTemplate": "<%= src %>/templates/scss.template.handlebars"
     }
   }
 }
