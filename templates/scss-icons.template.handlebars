@@ -120,8 +120,7 @@ ${{spritesheet_info.strings.name}}: ({{spritesheet.px.width}}, {{spritesheet.px.
 {{/block}}
 
 {{#sprites}}
-.icon-{{name}}:before {
-  display: block;
+.icon-{{name}} {
   background-image: url({{{escaped_image}}});
   background-position: {{px.offset_x}} {{px.offset_y}};
   width: {{px.width}};
